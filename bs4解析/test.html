@@ -1,0 +1,249 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+
+
+
+
+    <title>微信推送编辑</title>
+
+
+    <link href="/static/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://style.qnssl.xuemei360.cn/weui.min.css" rel="stylesheet">
+    <link href="https://style.qnssl.xuemei360.cn/jquery-weui.min.css" rel="stylesheet">
+
+    <style>
+
+        @-moz-document url-prefix() {
+            select.form-control {
+                -moz-appearance: none;
+                appearance: none;
+                background-image: url("https://bigtalk.qnssl.xuemei360.cn/buy-other-down.png.png");
+                background-repeat: no-repeat;
+                background-position: calc(100% - 7px) 50%;
+                background-size: 15% auto;
+                border-radius: 3px;
+                padding: 0;
+            }
+        }
+    </style>
+    <!-- css 部分 -->
+
+
+
+
+
+</head>
+<body>
+
+
+    <style>
+        .web_nav_icon {
+            width: 20px;
+            height: 20px;
+        }
+    </style>
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                        data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/web/home">首页</a>
+
+
+
+            </div>
+
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+
+
+
+                        <s class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                               aria-haspopup="true"
+                               aria-expanded="false">业绩记录<span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="/web/result/input">业绩录入</a></li>
+                                <li><a href="/web/result/list">业绩列表</a></li>
+                            </ul>
+                        </s>
+                        <li><a href="/web/sale/list" target="_blank">分销员列表</a></li>
+                        <li><a href="/web/product/list" target="_blank">商品列表</a></li>
+                        <li><a href="/web/push/list" target="_blank">推送列表</a></li>
+
+                </ul>
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+    </nav>
+
+
+<div class="container-fluid">
+
+
+    <div class="form-group">
+        <label for="name">推送名称(用于后面查找当前推送记录)</label>
+        <input class="form-control" placeholder="请输入推送名称" id="name" value="《2021美业总裁赢利系统》线上专案课程"/>
+    </div>
+
+    <div class="form-group">
+        <label for="first">推送标题</label>
+        <textarea class="form-control" placeholder="请输入标题" id="first">2021年要做赚钱的店
+改变赚钱的思维
+改变赚钱的品项
+改变赚钱的方法</textarea>
+    </div>
+
+    <div class="form-group">
+        <label for="keyword1">直播名称</label>
+        <input type="text" class="form-control" placeholder="请输入直播名称" id="keyword1" value="《2021美业总裁赢利系统》线上专案课程">
+    </div>
+
+    <div class="form-group">
+        <label for="keyword2">主讲人</label>
+        <input type="text" class="form-control" placeholder="请输入主讲人姓名" id="keyword2" value="王刚老师">
+    </div>
+
+    <div class="form-group">
+        <label for="keyword3">开始时间</label>
+        <input type="text" class="form-control" placeholder="请输入开始时间" id="keyword3" value="单店盈利高业绩设计体系单店盈利高业绩设计体系单店盈利高业绩设计体系">
+    </div>
+
+    <div class="form-group">
+        <label for="pushURL">点击跳转路径</label>
+        <input type="text" class="form-control" placeholder="请输入点击跳转路径" id="pushURL" value="https://appuwk0gtma4517.h5.xiaoeknow.com/v1/course/member/p_6004f8bfe4b0ab9a25490afa?type=3&amp;ref_id=">
+    </div>
+
+    <div class="form-group">
+        <label for="remark">备注</label>
+        <input type="text" class="form-control" placeholder="请输入备注" id="remark" value="成为槟莉超级会员免费观看学习 槟莉出品、堂堂精品、绝不浪费时间！">
+    </div>
+
+    <button type="submit" class="btn btn-success" onclick="submitPushNotice('bl_submit');">保存数据(槟莉美业管理)</button>
+
+    <button type="submit" class="btn btn-info" onclick="submitPushNotice('bl_test');">测试推送(槟莉美业管理)</button>
+    <button type="submit" class="btn btn-danger" onclick="submitPushNotice('bl_all');">推送所有人(槟莉美业管理)</button>
+
+
+
+
+    <input id="pushID" value="12" hidden>
+
+
+</div>
+<!-- content 部分 -->
+<div style="opacity: 0;">
+    <script type="text/javascript" src="https://s4.cnzz.com/z_stat.php?id=1279518877&web_id=1279518877"></script>
+</div>
+<script src="https://style.qnssl.xuemei360.cn/jquery.min.js"></script>
+
+<script src="/static/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="https://style.qnssl.xuemei360.cn/jquery-weui.min.js"></script>
+<script src="https://style.qnssl.xuemei360.cn/jquery.cookie.min.js"></script>
+<script src="https://style.qnssl.xuemei360.cn/base64.js"></script>
+<script src="https://style.qnssl.xuemei360.cn/moment.min.js"></script>
+<script src="/static/common/js/ajax_common.js"></script>
+<script src="/static/common/js/tools.js"></script>
+
+<!-- JavaScript 部分 -->
+
+
+    <script>
+
+        function submitPushNotice(type) {
+            var params = {};
+            var name = $("#name").val();
+            if (checkStringNull(name)) {
+                $.toast("推送名称不能为空");
+                return
+            }
+            var first = $("#first").val();
+            if (checkStringNull(first)) {
+                $.toast("标题不能为空");
+                return
+            }
+            var keyword1 = $("#keyword1").val();
+            if (checkStringNull(keyword1)) {
+                $.toast("直播名称不能为空");
+                return
+            }
+            var keyword2 = $("#keyword2").val();
+            if (checkStringNull(keyword2)) {
+                $.toast("主讲人不能为空");
+                return
+            }
+            var keyword3 = $("#keyword3").val();
+            if (checkStringNull(keyword3)) {
+                $.toast("开始时间不能为空");
+                return
+            }
+            var pushURL = $("#pushURL").val();
+            if (checkStringNull(pushURL)) {
+                $.toast("开始时间不能为空");
+                return
+            }
+            var remark = $("#remark").val();
+            if (checkStringNull(remark)) {
+                $.toast("备注不能为空");
+                return
+            }
+            var pushID = $("#pushID").val();
+            if (checkStringNull(pushID)) {
+                pushID = 0;
+            }
+
+            params['name'] = name;
+            params['first'] = first;
+            params['keyword1'] = keyword1;
+            params['keyword2'] = keyword2;
+            params['keyword3'] = keyword3;
+            params['pushURL'] = pushURL;
+            params['remark'] = remark;
+            params['pushID'] = pushID;
+            params['type'] = type;
+
+            ajax_post('/web/push/update', params, function (resR) {
+                $("#pushID").val(resR['detail']['pushID']);
+                if(type != 'bl_submit' && type != 'md_submit'){
+                pushNotice(type)
+                }
+            });
+        }
+
+        function pushNotice(type) {
+            var params = {};
+            var pushID = $("#pushID").val();
+            if (checkStringNull(pushID)) {
+                $.toast("请先保存数据");
+                return
+            }
+            $.confirm({
+                title: '提示框',
+                text: '推送不可逆，确定推送？？？',
+                onOK: function () {
+                    params['pushID'] = $("#pushID").val();
+                    params['type'] = type;
+                    ajax_post('/web/push/notice/api', params, function (resR) {
+                        $.toast(resR['detail']);
+                    });
+                },
+                onCancel: function () {
+                }
+            });
+
+        }
+
+    </script>
+
+
+</body>
+</html>
